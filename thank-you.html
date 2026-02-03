@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Cafe Delight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coffee-dark: #2C1810;
+            --coffee-medium: #5C4033;
+            --coffee-light: #8B6F47;
+            --cream: #F5E6D3;
+            --cream-light: #FAF3E8;
+            --accent-gold: #D4AF37;
+            --accent-warm: #E07A5F;
+            --text-dark: #2C1810;
+            --text-light: #F5E6D3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream-light);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .thank-you-hero {
+            background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-dark) 100%);
+            color: var(--cream);
+            text-align: center;
+            padding: 6rem 5% 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grain" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="none"/><g opacity="0.03"><circle cx="10" cy="10" r="1" fill="white"/><circle cx="50" cy="30" r="1" fill="white"/><circle cx="80" cy="60" r="1" fill="white"/><circle cx="30" cy="80" r="1" fill="white"/><circle cx="70" cy="20" r="1" fill="white"/></g></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: scaleIn 0.5s ease;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .thank-you-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .thank-you-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--cream);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--cream);
+            color: var(--coffee-dark);
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--coffee-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Payment Details Section */
+        .details-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .details-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .details-section > p {
+            color: var(--coffee-medium);
+            margin-bottom: 2.5rem;
+        }
+
+        .detail-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .detail-card {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            padding: 1.8rem;
+            background: var(--cream-light);
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .detail-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .detail-content h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+            font-size: 1.1rem;
+        }
+
+        .detail-content p {
+            color: var(--coffee-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #4CAF50;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        .status-badge.pending {
+            background: var(--accent-warm);
+        }
+
+        /* Addresses Section */
+        .addresses-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .address-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
+        }
+
+        .address-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .address-card > p {
+            color: var(--coffee-medium);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .address-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .address-item {
+            display: flex;
+            align-items: start;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            background: var(--cream-light);
+            border-radius: 15px;
+        }
+
+        .address-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--coffee-dark);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .address-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--cream);
+        }
+
+        .address-content h3 {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--coffee-dark);
+            font-size: 1.1rem;
+        }
+
+        .address-content p {
+            color: var(--coffee-medium);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Delivery Section */
+        .delivery-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
+        }
+
+        .delivery-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--coffee-dark);
+        }
+
+        .delivery-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--cream-light);
+            border-radius: 15px;
+        }
+
+        .delivery-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .delivery-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .delivery-details p {
+            color: var(--coffee-medium);
+            margin-bottom: 1rem;
+        }
+
+        .contact-delivery-btn {
+            padding: 0.7rem 1.8rem;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border: 2px solid var(--coffee-dark);
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .contact-delivery-btn:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        .delivery-estimate {
+            margin-top: 2rem;
+            padding: 1.8rem;
+            background: var(--cream-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: start;
+            gap: 1.2rem;
+        }
+
+        .estimate-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--coffee-dark);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .estimate-content h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .estimate-content p {
+            color: var(--coffee-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .estimate-status {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: #4CAF50;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .thank-you-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .delivery-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="thank-you-hero">
+        <div class="success-icon">✓</div>
+        <h1>Thank You for Your Purchase!</h1>
+        <p>We appreciate your support. Enjoy your coffee!</p>
+        <div class="hero-buttons">
+            <a href="order.html" class="btn-secondary">Shop More</a>
+            <a href="#" class="btn-primary" onclick="trackOrder()">Track Your Order</a>
+        </div>
+    </section>
+
+    <div class="content-container">
+        <!-- Left Column - Payment Details -->
+        <div class="details-section">
+            <h2>Payment Details</h2>
+            <p>Payment successfully received! Here's what you need to know.</p>
+
+            <div class="detail-cards">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Payment Method</h3>
+                        <p>Credit Card ending in 1234</p>
+                        <span class="status-badge">Completed</span>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Total Amount</h3>
+                        <p>Rs. 300</p>
+                        <span class="status-badge">Paid</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Addresses & Delivery -->
+        <div class="addresses-section">
+            <!-- Addresses -->
+            <div class="address-card">
+                <h2>Your Addresses</h2>
+                <p>Select one of your saved addresses for delivery.</p>
+
+                <div class="address-list">
+                    <div class="address-item">
+                        <div class="address-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="address-content">
+                            <h3>Delivery Address</h3>
+                            <p>123 Coffee Lane, City, State, 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="address-item">
+                        <div class="address-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                        </div>
+                        <div class="address-content">
+                            <h3>Billing Address</h3>
+                            <p>123 Coffee Lane, City, State, 12345</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delivery Estimate -->
+            <div class="delivery-section">
+                <h2>Delivery Estimate</h2>
+
+                <div class="delivery-info">
+                    <div class="delivery-avatar">👤</div>
+                    <div class="delivery-details">
+                        <h3>Alex Johnson</h3>
+                        <p>Your coffee will be delivered by:</p>
+                        <button class="contact-delivery-btn" onclick="contactDelivery()">Contact Delivery</button>
+                    </div>
+                </div>
+
+                <div class="delivery-estimate">
+                    <div class="estimate-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <div class="estimate-content">
+                        <h3>Estimated Delivery Time</h3>
+                        <p>Your coffee will arrive within 30 minutes.</p>
+                        <span class="estimate-status">On Time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Follow us on social media</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function trackOrder() {
+            alert('Order tracking feature coming soon! You will receive updates via email and SMS.');
+        }
+
+        function contactDelivery() {
+            alert('Contacting delivery person...\n\nAlex Johnson\nPhone: +1234567890\n\nYou can call or message the delivery person directly.');
+        }
+    </script>
+</body>
+</html>

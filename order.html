@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now - Cafe Delight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coffee-dark: #2C1810;
+            --coffee-medium: #5C4033;
+            --coffee-light: #8B6F47;
+            --cream: #F5E6D3;
+            --cream-light: #FAF3E8;
+            --accent-gold: #D4AF37;
+            --accent-warm: #E07A5F;
+            --text-dark: #2C1810;
+            --text-light: #F5E6D3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream-light);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--cream-light);
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--coffee-dark);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--coffee-medium);
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--coffee-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-order {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--coffee-dark);
+        }
+
+        .btn-order:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+            transform: translateY(-2px);
+        }
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--cream);
+            border: 2px solid var(--coffee-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .user-icon:hover {
+            background: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+
+        .user-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--coffee-medium);
+            transition: fill 0.3s ease;
+        }
+
+        .user-icon:hover svg {
+            fill: var(--cream);
+        }
+
+        /* Hero Section */
+        .order-hero {
+            text-align: center;
+            padding: 4rem 5% 3rem;
+            background: white;
+        }
+
+        .order-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .order-hero p {
+            font-size: 1.1rem;
+            color: var(--coffee-medium);
+            margin-bottom: 2rem;
+        }
+
+        .order-hero .btn-primary {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--coffee-dark);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .order-hero .btn-primary:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem 5% 3rem;
+            background: white;
+            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+        }
+
+        .category-tab {
+            padding: 0.75rem 2rem;
+            background: var(--cream);
+            border: 2px solid var(--cream);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--coffee-medium);
+        }
+
+        .category-tab:hover {
+            background: var(--cream-light);
+            border-color: var(--coffee-light);
+        }
+
+        .category-tab.active {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border-color: var(--coffee-dark);
+        }
+
+        /* Menu Section */
+        .menu-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .menu-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .menu-section > p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--coffee-medium);
+            margin-bottom: 4rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(44, 24, 16, 0.15);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(224, 122, 95, 0.1) 0%, transparent 50%);
+        }
+
+        .menu-item-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .coffee-icon {
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        .menu-item-content {
+            padding: 2rem;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--coffee-dark);
+        }
+
+        .menu-item-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .menu-item p {
+            color: var(--coffee-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .menu-item-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-add-cart,
+        .btn-order-now {
+            flex: 1;
+            padding: 0.85rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-order-now {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border-color: var(--coffee-dark);
+        }
+
+        .btn-order-now:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        .btn-add-cart {
+            background: transparent;
+            color: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+
+        .btn-add-cart:hover {
+            background: var(--coffee-dark);
+            color: var(--cream);
+        }
+
+        /* View More Button */
+        .view-more-section {
+            text-align: center;
+            padding: 3rem 0 5rem;
+        }
+
+        .btn-view-more {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 1.2rem 3.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--coffee-dark);
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        .btn-view-more:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger animation delays */
+        .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-item:nth-child(2) { animation-delay: 0.2s; }
+        .menu-item:nth-child(3) { animation-delay: 0.3s; }
+        .menu-item:nth-child(4) { animation-delay: 0.4s; }
+        .menu-item:nth-child(5) { animation-delay: 0.5s; }
+        .menu-item:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .order-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .menu-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tabs {
+                flex-wrap: wrap;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">LOGO</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="order.html" class="btn-order">Order Now</a></li>
+                <li>
+                    <div class="user-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="order-hero">
+        <h1>Choose Your Coffee</h1>
+        <p>Select from our exquisite range of coffees.</p>
+        <a href="#menu" class="btn-primary">Order Now</a>
+    </section>
+
+    <div class="category-tabs">
+        <button class="category-tab active" data-category="espressos">Espressos</button>
+        <button class="category-tab" data-category="lattes">Lattes</button>
+        <button class="category-tab" data-category="blends">Blends</button>
+    </div>
+
+    <section class="menu-section" id="menu">
+        <h2>Our Coffee Selections</h2>
+        <p>Explore our popular choices.</p>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be populated by JavaScript -->
+        </div>
+
+        <div class="view-more-section">
+            <a href="#" class="btn-view-more">View More</a>
+        </div>
+    </section>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Follow us on social media</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // Menu data
+        const menuItems = {
+            espressos: [
+                { name: 'Espresso', price: 300, description: 'A rich espresso coffee.', badge: 'Bold' },
+                { name: 'Double Espresso', price: 300, description: 'A rich espresso coffee.', badge: 'Bold' },
+                { name: 'Lungo', price: 300, description: 'A rich espresso coffee.', badge: 'Bold' },
+                { name: 'Ristretto', price: 300, description: 'A rich espresso coffee.', badge: 'Bold' },
+                { name: 'Macchiato', price: 300, description: 'A rich espresso coffee.', badge: 'Bold' },
+                { name: 'Americano', price: 300, description: 'A rich espresso coffee.', badge: 'Bold' }
+            ],
+            lattes: [
+                { name: 'Vanilla Latte', price: 350, description: 'Smooth and creamy latte.', badge: 'Popular' },
+                { name: 'Caramel Latte', price: 350, description: 'Sweet caramel delight.', badge: 'Popular' },
+                { name: 'Hazelnut Latte', price: 350, description: 'Nutty and delicious.', badge: 'New' }
+            ],
+            blends: [
+                { name: 'House Blend', price: 320, description: 'Our signature blend.', badge: 'Signature' },
+                { name: 'Dark Roast', price: 320, description: 'Bold and intense.', badge: 'Bold' },
+                { name: 'Medium Roast', price: 320, description: 'Balanced flavor profile.', badge: 'Classic' }
+            ]
+        };
+
+        let currentCategory = 'espressos';
+
+        // Function to render menu items
+        function renderMenu(category) {
+            const menuGrid = document.getElementById('menuGrid');
+            menuGrid.innerHTML = '';
+
+            menuItems[category].forEach((item, index) => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.style.animationDelay = `${index * 0.1}s`;
+                
+                menuItem.innerHTML = `
+                    <div class="menu-item-image">
+                        <div class="menu-item-badge">${item.badge}</div>
+                        <div class="coffee-icon">☕</div>
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>${item.name}</h3>
+                            <div class="menu-item-price">Rs.${item.price}</div>
+                        </div>
+                        <p>${item.description}</p>
+                        <div class="menu-item-actions">
+                            <a href="delivery-address.html" class="btn-order-now">Order Now</a>
+                            <button class="btn-add-cart" onclick="addToCart('${item.name}')">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                
+                menuGrid.appendChild(menuItem);
+            });
+        }
+
+        // Category tab functionality
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentCategory = this.getAttribute('data-category');
+                renderMenu(currentCategory);
+            });
+        });
+
+        // Add to cart function
+        function addToCart(itemName) {
+            alert(`${itemName} added to cart!`);
+        }
+
+        // Initial render
+        renderMenu(currentCategory);
+    </script>
+</body>
+</html>

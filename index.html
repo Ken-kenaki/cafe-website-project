@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Cafe Delight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coffee-dark: #2C1810;
+            --coffee-medium: #5C4033;
+            --coffee-light: #8B6F47;
+            --cream: #F5E6D3;
+            --cream-light: #FAF3E8;
+            --accent-gold: #D4AF37;
+            --accent-warm: #E07A5F;
+            --text-dark: #2C1810;
+            --text-light: #F5E6D3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream-light);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--coffee-dark);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--coffee-medium);
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--coffee-dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-order {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--coffee-dark);
+        }
+
+        .btn-order:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+            transform: translateY(-2px);
+        }
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--cream);
+            border: 2px solid var(--coffee-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .user-icon:hover {
+            background: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+        }
+
+        .user-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--coffee-medium);
+            transition: fill 0.3s ease;
+        }
+
+        .user-icon:hover svg {
+            fill: var(--cream);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-dark) 100%);
+            color: var(--cream);
+            text-align: center;
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grain" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="none"/><g opacity="0.03"><circle cx="10" cy="10" r="1" fill="white"/><circle cx="50" cy="30" r="1" fill="white"/><circle cx="80" cy="60" r="1" fill="white"/><circle cx="30" cy="80" r="1" fill="white"/><circle cx="70" cy="20" r="1" fill="white"/></g></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            position: relative;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s both;
+            position: relative;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            padding: 0.9rem 2.5rem;
+            border: 2px solid var(--cream);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--cream);
+            color: var(--coffee-dark);
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--coffee-dark);
+            padding: 0.9rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Sweet Drinks Section */
+        .drinks-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--coffee-medium);
+        }
+
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+
+        .drink-card {
+            background: var(--cream-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .drink-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(44, 24, 16, 0.15);
+        }
+
+        .drink-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--cream) 0%, #E8D4BE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .drink-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .drink-label {
+            font-size: 1.2rem;
+            color: var(--coffee-medium);
+            font-weight: 500;
+        }
+
+        .drink-info {
+            padding: 1.5rem;
+        }
+
+        .drink-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .drink-info .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .explore-menu-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 1.2rem 3.5rem;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--coffee-dark);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .explore-menu-btn:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        /* Story Section */
+        .story-preview {
+            padding: 5rem 5%;
+            background: var(--cream-light);
+        }
+
+        .story-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .story-content > p {
+            font-size: 1.1rem;
+            color: var(--coffee-medium);
+            margin-bottom: 3rem;
+        }
+
+        .story-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08);
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .story-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--cream);
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .story-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .story-card p {
+            color: var(--coffee-medium);
+            line-height: 1.6;
+        }
+
+        .view-more-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 1rem 3rem;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--coffee-dark);
+            transition: all 0.3s ease;
+        }
+
+        .view-more-btn:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .contact-container > p {
+            font-size: 1.1rem;
+            color: var(--coffee-medium);
+            margin-bottom: 3rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--coffee-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--cream);
+            border-radius: 10px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--cream-light);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: white;
+        }
+
+        .reason-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .reason-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--cream);
+            border: 2px solid var(--cream);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--coffee-medium);
+        }
+
+        .reason-btn:hover,
+        .reason-btn.active {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border-color: var(--coffee-dark);
+        }
+
+        .submit-btn {
+            padding: 1.2rem;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border: 2px solid var(--coffee-dark);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 5rem 5%;
+            background: var(--cream-light);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--coffee-dark);
+        }
+
+        .reviews-container > p {
+            font-size: 1.1rem;
+            color: var(--coffee-medium);
+            margin-bottom: 3rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .review-info h4 {
+            font-weight: 600;
+            color: var(--coffee-dark);
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+        }
+
+        .review-card p {
+            color: var(--coffee-medium);
+            line-height: 1.6;
+        }
+
+        .share-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 1rem 3rem;
+            background: var(--coffee-dark);
+            color: var(--cream);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--coffee-dark);
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: transparent;
+            color: var(--coffee-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coffee-dark);
+            color: var(--cream);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .drink-card:nth-child(1) { animation-delay: 0.1s; }
+        .drink-card:nth-child(2) { animation-delay: 0.2s; }
+        .drink-card:nth-child(3) { animation-delay: 0.3s; }
+        .drink-card:nth-child(4) { animation-delay: 0.4s; }
+        .drink-card:nth-child(5) { animation-delay: 0.5s; }
+        .drink-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons,
+            .reason-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">LOGO</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="order.html" class="btn-order">Order Now</a></li>
+                <li>
+                    <div class="user-icon" onclick="window.location.href='login.html'">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Our Coffee Shop</h1>
+        <p>Experience the finest coffee blends from around the world.</p>
+        <div class="hero-buttons">
+            <a href="menu.html" class="btn-secondary">View Menu</a>
+            <a href="order.html" class="btn-primary">Order Now</a>
+        </div>
+    </section>
+
+    <section class="drinks-section">
+        <div class="section-header">
+            <h2>Our Sweet Drinks</h2>
+            <p>Explore our selection of handmade coffee and pastries.</p>
+        </div>
+
+        <div class="drinks-grid">
+            <div class="drink-card">
+                <div class="drink-image">
+                    <div class="drink-badge">Best Seller</div>
+                    <div class="drink-label">Espresso</div>
+                </div>
+                <div class="drink-info">
+                    <h3>Espresso</h3>
+                    <div class="price">Rs.300</div>
+                </div>
+            </div>
+
+            <div class="drink-card">
+                <div class="drink-image">
+                    <div class="drink-badge">Creamy</div>
+                    <div class="drink-label">Latte</div>
+                </div>
+                <div class="drink-info">
+                    <h3>Latte</h3>
+                    <div class="price">Rs.300</div>
+                </div>
+            </div>
+
+            <div class="drink-card">
+                <div class="drink-image">
+                    <div class="drink-label">Croissant</div>
+                </div>
+                <div class="drink-info">
+                    <h3>Croissant</h3>
+                    <div class="price">Rs.300</div>
+                </div>
+            </div>
+
+            <div class="drink-card">
+                <div class="drink-image">
+                    <div class="drink-badge">Chocolate</div>
+                    <div class="drink-label">Mocha</div>
+                </div>
+                <div class="drink-info">
+                    <h3>Mocha</h3>
+                    <div class="price">Rs.300</div>
+                </div>
+            </div>
+
+            <div class="drink-card">
+                <div class="drink-image">
+                    <div class="drink-label">Cappuccino</div>
+                </div>
+                <div class="drink-info">
+                    <h3>Cappuccino</h3>
+                    <div class="price">Rs.300</div>
+                </div>
+            </div>
+
+            <div class="drink-card">
+                <div class="drink-image">
+                    <div class="drink-label">Muffin</div>
+                </div>
+                <div class="drink-info">
+                    <h3>Muffin</h3>
+                    <div class="price">Rs.300</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="menu.html" class="explore-menu-btn">Explore Our Menu</a>
+    </section>
+
+    <section class="story-preview">
+        <div class="story-content">
+            <h2>Our Story</h2>
+            <p>Learn about our journey and commitment to quality.</p>
+
+            <div class="story-cards">
+                <div class="story-card">
+                    <div class="story-icon"></div>
+                    <div>
+                        <h3>Our Beginnings</h3>
+                        <p>Started in 2010 as a small coffee stand, now a beloved local spot.</p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-icon"></div>
+                    <div>
+                        <h3>Our Philosophy</h3>
+                        <p>We believe in quality ingredients and sustainable practices.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="our-story.html" class="view-more-btn">View More</a>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>Learn about our journey and commitment to quality.</p>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Your Reason</label>
+                    <div class="reason-buttons">
+                        <button type="button" class="reason-btn active" data-reason="enquiry">Enquiry</button>
+                        <button type="button" class="reason-btn" data-reason="comment">Comment</button>
+                        <button type="button" class="reason-btn" data-reason="suggestion">Suggestion</button>
+                        <button type="button" class="reason-btn" data-reason="order">Order</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Special Requests</label>
+                    <textarea id="message" rows="4" placeholder="Any special requests?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Order</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2>Customer Reviews</h2>
+            <p>See what our customers say.</p>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div class="review-info">
+                            <h4>Alice</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>The best latte I've ever had!</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">B</div>
+                        <div class="review-info">
+                            <h4>Bob</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>A cozy place with great atmosphere.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">E</div>
+                        <div class="review-info">
+                            <h4>Emily</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>I love their pastries! Fresh and delicious.</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">F</div>
+                        <div class="review-info">
+                            <h4>Frank</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>My favorite shop in the city.</p>
+                </div>
+            </div>
+
+            <a href="#" class="share-btn">Share your mind</a>
+        </div>
+    </section>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Follow us on social media</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // Reason button functionality
+        const reasonButtons = document.querySelectorAll('.reason-btn');
+        let selectedReason = 'enquiry';
+
+        reasonButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                reasonButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                selectedReason = this.getAttribute('data-reason');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                reason: selectedReason,
+                message: document.getElementById('message').value
+            };
+
+            console.log('Form submitted:', formData);
+            alert('Thank you for contacting us! We will get back to you soon.');
+            this.reset();
+            reasonButtons[0].classList.add('active');
+            selectedReason = 'enquiry';
+        });
+    </script>
+</body>
+</html>
