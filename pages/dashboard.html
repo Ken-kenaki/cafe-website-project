@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cafe Delight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="Cafe Delight Logo" style="height: 40px; margin-right: 10px;">
+                Cafe Delight
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="order.html" class="btn-order">Order Now</a></li>
+                <li>
+                    <div class="user-icon">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn" style="display: none; background: none; border: none; font-size: 1.5rem;">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-container" style="max-width: 1200px; margin: 2rem auto; padding: 0 5%;">
+        <div id="dashboardContent">
+            <!-- Content will be loaded by JavaScript -->
+            <div class="loading" style="text-align: center; padding: 4rem;">
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem; color: var(--coffee-medium);">Loading dashboard...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Follow us on social media</a></li>
+        </ul>
+        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">&copy; 2024 Cafe Delight. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
