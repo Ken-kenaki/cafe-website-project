@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Now - Cafe Delight</title>
+    <link rel="stylesheet" href="/css/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -464,10 +465,44 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">LOGO</div>
-            <ul class="nav-links">
+<header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <ul class="nav-links desktop-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="order.html" class="btn-order">Order Now</a></li>
+            <li>
+                <div class="user-icon">
+                    <a href="login.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        
+        <!-- Mobile Menu Button (right side) -->
+        <button class="mobile-menu-btn">
+            <span class="hamburger">
+                <i class="fas fa-bars"></i>
+            </span>
+            <span class="close" style="display: none;">
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+        
+        <!-- Mobile Navigation (separate from desktop) -->
+        <div class="mobile-nav-container">
+            <div class="mobile-nav-overlay"></div>
+            <ul class="mobile-nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="our-story.html">Our Story</a></li>
@@ -475,14 +510,18 @@
                 <li><a href="order.html" class="btn-order">Order Now</a></li>
                 <li>
                     <div class="user-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                        </svg>
+                        <a href="login.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                            </svg>
+                            <span>Login</span>
+                        </a>
                     </div>
                 </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <section class="order-hero">
         <h1>Choose Your Coffee</h1>

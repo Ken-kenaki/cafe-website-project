@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Cafe Delight</title>
+    <link rel="stylesheet" href="/css/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -31,120 +32,14 @@
             line-height: 1.6;
         }
 
-        /* Header & Navigation */
-        header {
-            background: white;
-            padding: 1.5rem 5%;
-            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--coffee-dark);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--coffee-medium);
-            font-weight: 400;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--coffee-dark);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .btn-order {
-            background: var(--coffee-dark);
-            color: var(--cream);
-            padding: 0.75rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--coffee-dark);
-        }
-
-        .btn-order:hover {
-            background: transparent;
-            color: var(--coffee-dark);
-            transform: translateY(-2px);
-        }
-
-        .user-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--cream);
-            border: 2px solid var(--coffee-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .user-icon:hover {
-            background: var(--coffee-dark);
-            border-color: var(--coffee-dark);
-        }
-
-        .user-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--coffee-medium);
-            transition: fill 0.3s ease;
-        }
-
-        .user-icon:hover svg {
-            fill: var(--cream);
-        }
 
         /* Hero Section */
         .menu-hero {
             background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-dark) 100%);
-            padding: 5rem 5%;
+            padding: 10rem 10rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 10rem;
             align-items: center;
             position: relative;
             overflow: hidden;
@@ -221,7 +116,8 @@
         }
 
         .hero-image {
-            background: rgba(255, 255, 255, 0.1);
+            background-image: url('/images/expresso.jpg');
+            background-size: cover;
             border-radius: 20px;
             height: 350px;
             display: flex;
@@ -236,7 +132,6 @@
             content: '';
             position: absolute;
             inset: -2px;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
             border-radius: 20px;
             opacity: 0.3;
             z-index: -1;
@@ -481,37 +376,73 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">LOGO</div>
-            <ul class="nav-links">
+<header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <ul class="nav-links desktop-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="order.html" class="btn-order">Order Now</a></li>
+            <li>
+                <div class="user-icon">
+                    <a href="login.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        
+        <!-- Mobile Menu Button (right side) -->
+        <button class="mobile-menu-btn">
+            <span class="hamburger">
+                <i class="fas fa-bars"></i>
+            </span>
+            <span class="close" style="display: none;">
+                <i class="fas fa-times"></i>
+            </span>
+        </button>
+        
+        <!-- Mobile Navigation (separate from desktop) -->
+        <div class="mobile-nav-container">
+            <div class="mobile-nav-overlay"></div>
+            <ul class="mobile-nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="our-story.html">Our Story</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="order.html" class="btn-order">Order Now</a></li>
                 <li>
-                    <div class="user-icon" onclick="window.location.href='login.html'">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                        </svg>
+                    <div class="user-icon">
+                        <a href="login.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                            </svg>
+                            <span>Login</span>
+                        </a>
                     </div>
                 </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <section class="menu-hero">
         <div class="hero-content">
             <h1>Explore Our Menu</h1>
             <p>Discover a variety of delicious dishes available for you.</p>
             <div class="hero-buttons">
-                <a href="#specials" class="btn-secondary">View Specials</a>
                 <a href="order.html" class="btn-primary">Order Now</a>
             </div>
         </div>
         <div class="hero-image">
-            <div style="font-size: 6rem; opacity: 0.5;">☕</div>
         </div>
     </section>
 
