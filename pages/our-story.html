@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story - Cafe Delight</title>
     <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -371,50 +372,106 @@
         .location-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .location-header {
             text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .location-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+        }
+
+        .location-header p {
+            font-size: 1.2rem;
+            color: var(--coffee-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .location-map-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .location-map-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .location-info {
+                flex: 1;
+            }
+            
+            .location-map-wrapper {
+                flex: 1.5;
+            }
+        }
+
+        .location-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
+        }
+
+        .location-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--coffee-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            background: var(--accent-gold);
+            color: var(--coffee-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--coffee-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-content p {
+            color: var(--coffee-medium);
+            line-height: 1.6;
+        }
+
+        .location-map-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.1);
+            height: 450px;
         }
 
         .location-map {
             width: 100%;
-            height: 400px;
-            background: white;
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .location-map::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(45deg, var(--cream) 25%, transparent 25%),
-                linear-gradient(-45deg, var(--cream) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, var(--cream) 75%),
-                linear-gradient(-45deg, transparent 75%, var(--cream) 75%);
-            background-size: 40px 40px;
-            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-            opacity: 0.05;
-        }
-
-        .location-icon {
-            font-size: 3rem;
-            color: var(--accent-gold);
-            z-index: 1;
-        }
-
-        .location-text {
-            font-size: 1.2rem;
-            color: var(--coffee-dark);
-            font-weight: 500;
+            height: 100%;
+            border: none;
+            display: block;
         }
 
         /* Footer */
@@ -445,6 +502,72 @@
             opacity: 1;
         }
 
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--coffee-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-nav-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100vh;
+            z-index: 1001;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.5);
+            backdrop-filter: blur(5px);
+            display: none;
+        }
+
+        .mobile-nav-links {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--cream-light);
+            padding: 4rem 2rem 2rem;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav-links.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-links li {
+            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: var(--coffee-dark);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -459,9 +582,16 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.9rem;
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-nav-container {
+                display: block;
             }
 
             .hero h1 {
@@ -482,6 +612,18 @@
                 flex-wrap: wrap;
                 gap: 1.5rem;
             }
+
+            .location-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .location-info {
+                padding: 1.5rem;
+            }
+
+            .location-map-wrapper {
+                height: 350px;
+            }
         }
     </style>
 </head>
@@ -489,7 +631,7 @@
 <header>
     <nav>
         <a href="index.html" class="logo">
-            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
+            Cafe Delight
         </a>
         
         <!-- Desktop Navigation -->
@@ -610,10 +752,52 @@
 
     <section class="location-section">
         <div class="location-content">
-            <div class="location-map">
-                <div>
-                    <div class="location-icon">📍</div>
-                    <p class="location-text">Visit us at our cozy corner cafe located in downtown.</p>
+            <div class="location-header">
+                <h2>Visit Our Cafe</h2>
+                <p>Experience the warmth and aroma of our carefully crafted coffee at our convenient location</p>
+            </div>
+            
+            <div class="location-map-container">
+                <div class="location-info">
+                    <h3>Location Details</h3>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Address</h4>
+                            <p>Techspire College Area<br>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Opening Hours</h4>
+                            <p>Monday - Friday: 7:00 AM - 9:00 PM<br>Saturday - Sunday: 8:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Contact</h4>
+                            <p>Phone: +977 1-XXXXXXX<br>Email: info@cafedelight.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.966458868519!2d85.33237997609942!3d27.687431526368545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x23bb4647745b3c5%3A0x188d79956864ba46!2sTechspire%20College!5e0!3m2!1sen!2snp!4v1770363454307!5m2!1sen!2snp" 
+                        class="location-map" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Cafe Delight Location Map">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -626,6 +810,53 @@
             <li><a href="#">Terms of Service</a></li>
             <li><a href="#">Follow us on social media</a></li>
         </ul>
+        <p>&copy; 2024 Cafe Delight. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const mobileNavLinks = document.querySelector('.mobile-nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        const closeBtn = document.querySelector('.close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isActive = mobileNavLinks.classList.contains('active');
+            
+            if (!isActive) {
+                mobileNavLinks.classList.add('active');
+                mobileNavOverlay.style.display = 'block';
+                hamburger.style.display = 'none';
+                closeBtn.style.display = 'inline';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileNavLinks.classList.remove('active');
+                mobileNavOverlay.style.display = 'none';
+                hamburger.style.display = 'inline';
+                closeBtn.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        mobileNavOverlay.addEventListener('click', () => {
+            mobileNavLinks.classList.remove('active');
+            mobileNavOverlay.style.display = 'none';
+            hamburger.style.display = 'inline';
+            closeBtn.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavLinks.classList.remove('active');
+                mobileNavOverlay.style.display = 'none';
+                hamburger.style.display = 'inline';
+                closeBtn.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+    </script>
 </body>
 </html>
