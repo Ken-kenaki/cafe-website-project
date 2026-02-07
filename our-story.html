@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logo.png" type="image/png">
+
     <style>
         :root {
             --coffee-dark: #2C1810;
@@ -31,113 +33,6 @@
             color: var(--text-dark);
             background: var(--cream-light);
             line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: var(--cream-light);
-            padding: 1.5rem 5%;
-            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--coffee-dark);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--coffee-medium);
-            font-weight: 400;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--coffee-dark);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .btn-order {
-            background: var(--coffee-dark);
-            color: var(--cream);
-            padding: 0.75rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--coffee-dark);
-        }
-
-        .btn-order:hover {
-            background: transparent;
-            color: var(--coffee-dark);
-            transform: translateY(-2px);
-        }
-
-        .user-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--cream);
-            border: 2px solid var(--coffee-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .user-icon:hover {
-            background: var(--coffee-dark);
-            border-color: var(--coffee-dark);
-        }
-
-        .user-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--coffee-medium);
-            transition: fill 0.3s ease;
-        }
-
-        .user-icon:hover svg {
-            fill: var(--cream);
         }
 
         /* Hero Section */
@@ -631,7 +526,7 @@
 <header>
     <nav>
         <a href="index.html" class="logo">
-            Cafe Delight
+            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
         </a>
         
         <!-- Desktop Navigation -->
