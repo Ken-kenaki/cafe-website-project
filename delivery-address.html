@@ -3,479 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery Address - Cafe Delight</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Delivery Address — Cafe Delight</title>
     <link rel="icon" href="images/logo.png" type="image/png">
-
-    <style>
-        :root {
-            --coffee-dark: #2C1810;
-            --coffee-medium: #5C4033;
-            --coffee-light: #8B6F47;
-            --cream: #F5E6D3;
-            --cream-light: #FAF3E8;
-            --accent-gold: #D4AF37;
-            --accent-warm: #E07A5F;
-            --text-dark: #2C1810;
-            --text-light: #F5E6D3;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background: var(--cream-light);
-            line-height: 1.6;
-        }
-
-        .delivery-container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        /* Left Column - Address Form */
-        .address-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
-        }
-
-        .address-section h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--coffee-dark);
-        }
-
-        .address-section > p {
-            color: var(--coffee-medium);
-            margin-bottom: 2rem;
-        }
-
-        .page-header {
-            text-align: center;
-            padding: 3rem 5% 2rem;
-            background: white;
-            margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--coffee-dark);
-        }
-
-        .page-header p {
-            color: var(--coffee-medium);
-            font-size: 1.1rem;
-        }
-
-        .trace-location-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--coffee-dark);
-            color: var(--cream);
-            border: 2px solid var(--coffee-dark);
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
-        }
-
-        .trace-location-btn:hover {
-            background: transparent;
-            color: var(--coffee-dark);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--coffee-dark);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--cream);
-            border-radius: 10px;
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--cream-light);
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            background: white;
-        }
-
-        .form-group small {
-            display: block;
-            margin-top: 0.3rem;
-            color: var(--coffee-medium);
-            font-size: 0.85rem;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn-cancel,
-        .btn-save {
-            flex: 1;
-            padding: 1rem;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid;
-            font-size: 1rem;
-        }
-
-        .btn-cancel {
-            background: transparent;
-            color: var(--coffee-dark);
-            border-color: var(--coffee-dark);
-        }
-
-        .btn-cancel:hover {
-            background: var(--cream);
-        }
-
-        .btn-save {
-            background: var(--coffee-dark);
-            color: var(--cream);
-            border-color: var(--coffee-dark);
-        }
-
-        .btn-save:hover {
-            background: var(--coffee-medium);
-            border-color: var(--coffee-medium);
-        }
-
-        /* Right Column - Saved Addresses */
-        .saved-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            color: var(--coffee-dark);
-        }
-
-        .saved-section > p {
-            color: var(--coffee-medium);
-            margin-bottom: 2rem;
-        }
-
-        .saved-addresses {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .address-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08);
-            display: flex;
-            align-items: start;
-            gap: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .address-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(44, 24, 16, 0.12);
-            border-color: var(--accent-gold);
-        }
-
-        .address-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .address-icon svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-
-        .address-details h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
-            color: var(--coffee-dark);
-        }
-
-        .address-details p {
-            color: var(--coffee-medium);
-            font-size: 0.95rem;
-        }
-
-        /* Delivery Info */
-        .delivery-info {
-            background: var(--cream);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .delivery-info p {
-            color: var(--coffee-dark);
-            font-weight: 500;
-        }
-
-        .loading-indicator {
-            display: inline-block;
-            margin-left: 0.5rem;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--coffee-dark);
-            color: var(--cream);
-            padding: 3rem 5%;
-            text-align: center;
-            margin-top: 5rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: var(--cream);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            opacity: 0.9;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-gold);
-            opacity: 1;
-        }
-
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .address-section,
-        .saved-section {
-            animation: fadeInUp 0.6s ease;
-        }
-
-        .saved-section {
-            animation-delay: 0.2s;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .delivery-container {
-                grid-template-columns: 1fr;
-            }
-
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .address-section h1 {
-                font-size: 2rem;
-            }
-
-            .form-actions {
-                flex-direction: column;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                gap: 1.5rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <div class="page-header">
-        <h1>Delivery Address Options</h1>
-        <p>Please select or enter your delivery address.</p>
-    </div>
 
-    <div class="delivery-container">
-        <!-- Left Column - Address Form -->
-        <div class="address-section">
-            <h1>Enter Your Address</h1>
-            <p>Fill in the form below to set your delivery address.</p>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Cafe Delight Logo"></a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+                <a href="order.html" class="btn-nav">Order Now</a>
+                <a href="login.html" class="nav-user" aria-label="Login"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span class="hamburger"><i class="fas fa-bars"></i></span><span class="close" style="display:none;"><i class="fas fa-times"></i></span></button>
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-overlay"></div>
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="order.html" class="btn-nav"><i class="fas fa-shopping-bag"></i> Order Now</a></li>
+                    <li><a href="login.html" class="nav-user"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg><span>Login</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-            <button class="trace-location-btn" onclick="traceLocation()">
-                📍 Trace My Location
-            </button>
+    <!-- ===== HERO ===== -->
+    <section class="delivery-hero">
+        <h1>Delivery Address</h1>
+        <p>Where should we deliver your order?</p>
+    </section>
 
-            <form id="addressForm">
-                <div class="form-group">
-                    <label for="street">Street Address</label>
-                    <input type="text" id="street" placeholder="123 Coffee Lane" required>
-                    <small>Please include apartment or suite number</small>
-                </div>
-
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" id="city" placeholder="City" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="state">State</label>
-                    <input type="text" id="state" placeholder="State" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="zip">Zip Code</label>
-                    <input type="text" id="zip" placeholder="ZIP Code" required>
-                </div>
-
-                <div class="form-actions">
-                    <button type="button" class="btn-cancel" onclick="clearForm()">Cancel</button>
-                    <button type="submit" class="btn-save">Save Address</button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Right Column - Saved Addresses -->
-        <div class="saved-section">
-            <h2>Saved Addresses</h2>
-            <p>Select one of your saved addresses for delivery.</p>
-
-            <div class="saved-addresses">
-                <div class="address-card" onclick="selectAddress('work')">
-                    <div class="address-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
-                        </svg>
+    <!-- ===== DELIVERY GRID ===== -->
+    <section class="delivery-section">
+        <div class="delivery-grid">
+            <!-- Left — Address Form -->
+            <div class="delivery-form-panel reveal-left">
+                <h2><i class="fas fa-map-marker-alt"></i> Enter New Address</h2>
+                <form id="addressForm" novalidate>
+                    <div class="form-group">
+                        <label for="label">Address Label</label>
+                        <input type="text" id="label" name="label" placeholder="e.g. Home, Work, School" required>
                     </div>
-                    <div class="address-details">
-                        <h3>Work</h3>
-                        <p>123 Coffee Lane, City, State, 12345</p>
+                    <div class="form-group">
+                        <label for="street">Street Address</label>
+                        <input type="text" id="street" name="street" placeholder="123 Main Street" required>
                     </div>
-                </div>
-
-                <div class="address-card" onclick="selectAddress('home')">
-                    <div class="address-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                        </svg>
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" placeholder="Kathmandu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" name="zip" placeholder="44600" required>
+                        </div>
                     </div>
-                    <div class="address-details">
-                        <h3>Home</h3>
-                        <p>123 Coffee Lane, City, State, 12345</p>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+977 98XXXXXXXX" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="instructions">Delivery Instructions (optional)</label>
+                        <textarea id="instructions" name="instructions" rows="3" placeholder="Ring the bell, leave at door, etc."></textarea>
+                    </div>
+                    <div class="delivery-actions">
+                        <button type="button" class="btn btn-secondary" id="traceBtn">
+                            <i class="fas fa-crosshairs"></i> Use My Location
+                        </button>
+                        <button type="submit" class="btn btn-primary">Save Address</button>
+                    </div>
+                </form>
             </div>
 
-            <div class="delivery-info">
-                <p>Free delivery on orders over Rs.300 <span class="loading-indicator">...</span></p>
+            <!-- Right — Saved Addresses -->
+            <div class="saved-addresses-panel reveal-right">
+                <h2><i class="fas fa-bookmark"></i> Saved Addresses</h2>
+                <div class="address-list" id="addressList">
+                    <!-- Default demo addresses -->
+                    <div class="address-card selected">
+                        <div class="address-card-header">
+                            <span class="address-label"><i class="fas fa-briefcase"></i> Work</span>
+                            <span class="address-default">Default</span>
+                        </div>
+                        <p>Techspire College, Tinkune, Kathmandu</p>
+                        <span class="address-phone">+977 01-4567890</span>
+                    </div>
+                    <div class="address-card">
+                        <div class="address-card-header">
+                            <span class="address-label"><i class="fas fa-home"></i> Home</span>
+                        </div>
+                        <p>New Baneshwor, Kathmandu 44600</p>
+                        <span class="address-phone">+977 98XXXXXXXX</span>
+                    </div>
+                </div>
+                <a href="payment.html" class="btn btn-gold btn-wide" id="continueBtn">
+                    Continue to Payment <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <ul class="footer-links">
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Follow us on social media</a></li>
-        </ul>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Cafe Delight</h3>
+                    <p>Crafting exceptional coffee experiences since 2010. Every cup is a journey of flavor, quality, and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="our-story.html">Our Story</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="order.html">Order Online</a>
+                    <a href="delivery-address.html">Delivery</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <a href="#">Mon–Fri: 7am–9pm</a>
+                    <a href="#">Sat–Sun: 8am–10pm</a>
+                    <a href="#">Holidays: 9am–6pm</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cafe Delight. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
     <script>
-        // Trace location function
-        function traceLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        alert(`Location traced!\nLatitude: ${position.coords.latitude}\nLongitude: ${position.coords.longitude}\n\nNote: In a real app, this would reverse geocode to an address.`);
-                    },
-                    (error) => {
-                        alert('Unable to get location. Please enter manually.');
-                    }
-                );
-            } else {
-                alert('Geolocation is not supported by your browser.');
+        /* ===== Address Card Selection ===== */
+        document.querySelectorAll('.address-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.address-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+        });
+
+        /* ===== Trace Location ===== */
+        document.getElementById('traceBtn').addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                storage.showToast('Geolocation is not supported by your browser.', 'error');
+                return;
             }
-        }
+            storage.showToast('Locating you...', 'success');
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    document.getElementById('street').value = `Lat: ${pos.coords.latitude.toFixed(4)}, Lng: ${pos.coords.longitude.toFixed(4)}`;
+                    document.getElementById('city').value = 'Kathmandu';
+                    document.getElementById('zip').value = '44600';
+                    storage.showToast('Location found!', 'success');
+                },
+                () => storage.showToast('Unable to retrieve your location.', 'error')
+            );
+        });
 
-        // Clear form
-        function clearForm() {
-            document.getElementById('addressForm').reset();
-        }
-
-        // Select saved address
-        function selectAddress(type) {
-            alert(`${type.charAt(0).toUpperCase() + type.slice(1)} address selected! Proceeding to payment...`);
-            window.location.href = 'payment.html';
-        }
-
-        // Form submission
+        /* ===== Save Address ===== */
         document.getElementById('addressForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = {
-                street: document.getElementById('street').value,
-                city: document.getElementById('city').value,
-                state: document.getElementById('state').value,
-                zip: document.getElementById('zip').value
-            };
+            const label = document.getElementById('label').value.trim();
+            const street = document.getElementById('street').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const zip = document.getElementById('zip').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const instructions = document.getElementById('instructions').value.trim();
 
-            console.log('Address saved:', formData);
-            alert('Address saved successfully! Proceeding to payment...');
-            window.location.href = 'payment.html';
+            if (!label || !street || !city || !zip || !phone) {
+                storage.showToast('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            storage.saveAddress({ label, street, city, zip, phone, instructions });
+            storage.showToast(`"${label}" address saved!`, 'success');
+
+            /* Add to list dynamically */
+            const list = document.getElementById('addressList');
+            const card = document.createElement('div');
+            card.className = 'address-card';
+            card.innerHTML = `
+                <div class="address-card-header">
+                    <span class="address-label"><i class="fas fa-map-pin"></i> ${label}</span>
+                </div>
+                <p>${street}, ${city} ${zip}</p>
+                <span class="address-phone">${phone}</span>
+            `;
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.address-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+            list.appendChild(card);
+            this.reset();
         });
     </script>
 </body>

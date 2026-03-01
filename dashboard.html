@@ -3,63 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Cafe Delight</title>
+    <title>Dashboard — Cafe Delight</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <a href="../index.html" class="logo">
-                <img src="../images/logo.png" alt="Cafe Delight Logo" style="height: 40px; margin-right: 10px;">
-                Cafe Delight
-            </a>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="our-story.html">Our Story</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="order.html" class="btn-order">Order Now</a></li>
-                <li>
-                    <div class="user-icon">
-                        <!-- Will be populated by JavaScript -->
-                    </div>
-                </li>
-            </ul>
-            <button class="mobile-menu-btn" style="display: none; background: none; border: none; font-size: 1.5rem;">
-                <i class="fas fa-bars"></i>
-            </button>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Cafe Delight Logo"></a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+                <a href="order.html" class="btn-nav">Order Now</a>
+                <a href="#" class="nav-user" id="logoutBtn" aria-label="Logout"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span class="hamburger"><i class="fas fa-bars"></i></span><span class="close" style="display:none;"><i class="fas fa-times"></i></span></button>
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-overlay"></div>
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="order.html" class="btn-nav"><i class="fas fa-shopping-bag"></i> Order Now</a></li>
+                    <li><a href="#" id="mobileLogoutBtn" class="nav-user"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <!-- Dashboard Content -->
-    <main class="dashboard-container" style="max-width: 1200px; margin: 2rem auto; padding: 0 5%;">
-        <div id="dashboardContent">
-            <!-- Content will be loaded by JavaScript -->
-            <div class="loading" style="text-align: center; padding: 4rem;">
-                <div class="spinner"></div>
-                <p style="margin-top: 1rem; color: var(--coffee-medium);">Loading dashboard...</p>
+    <!-- ===== DASHBOARD HERO ===== -->
+    <section class="dashboard-hero">
+        <h1>Welcome, <span id="userName">Guest</span> ☕</h1>
+        <p>Manage your profile, view past orders, and more.</p>
+    </section>
+
+    <!-- ===== DASHBOARD CONTENT ===== -->
+    <section class="dashboard-section">
+        <div class="dashboard-grid">
+            <!-- Profile Card -->
+            <div class="dash-card reveal-left">
+                <div class="dash-card-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h3>Profile</h3>
+                </div>
+                <div class="dash-card-body">
+                    <div class="profile-avatar" id="profileAvatar">G</div>
+                    <p class="profile-name" id="profileName">Guest User</p>
+                    <p class="profile-email" id="profileEmail">guest@example.com</p>
+                    <form id="profileForm" class="dash-form">
+                        <div class="form-group">
+                            <label for="editName">Name</label>
+                            <input type="text" id="editName" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email</label>
+                            <input type="email" id="editEmail" placeholder="you@example.com">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Order History Card -->
+            <div class="dash-card reveal-right">
+                <div class="dash-card-header">
+                    <i class="fas fa-history"></i>
+                    <h3>Order History</h3>
+                </div>
+                <div class="dash-card-body">
+                    <div class="order-history-list" id="orderHistory">
+                        <div class="empty-state">
+                            <i class="fas fa-coffee"></i>
+                            <p>No orders yet. <a href="order.html">Start ordering!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Card -->
+            <div class="dash-card reveal">
+                <div class="dash-card-header">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Quick Actions</h3>
+                </div>
+                <div class="dash-card-body">
+                    <div class="quick-actions">
+                        <a href="order.html" class="quick-action-btn">
+                            <i class="fas fa-mug-hot"></i>
+                            <span>New Order</span>
+                        </a>
+                        <a href="delivery-address.html" class="quick-action-btn">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Addresses</span>
+                        </a>
+                        <a href="menu.html" class="quick-action-btn">
+                            <i class="fas fa-book-open"></i>
+                            <span>View Menu</span>
+                        </a>
+                        <a href="contact.html" class="quick-action-btn">
+                            <i class="fas fa-headset"></i>
+                            <span>Support</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Change Password Card -->
+            <div class="dash-card reveal">
+                <div class="dash-card-header">
+                    <i class="fas fa-lock"></i>
+                    <h3>Change Password</h3>
+                </div>
+                <div class="dash-card-body">
+                    <form id="passwordForm" class="dash-form">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" placeholder="Min. 8 characters" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-sm">Change Password</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <ul class="footer-links">
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Follow us on social media</a></li>
-        </ul>
-        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">&copy; 2024 Cafe Delight. All rights reserved.</p>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Cafe Delight</h3>
+                    <p>Crafting exceptional coffee experiences since 2010. Every cup is a journey of flavor, quality, and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="our-story.html">Our Story</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="order.html">Order Online</a>
+                    <a href="delivery-address.html">Delivery</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <a href="#">Mon–Fri: 7am–9pm</a>
+                    <a href="#">Sat–Sun: 8am–10pm</a>
+                    <a href="#">Holidays: 9am–6pm</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cafe Delight. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="../js/storage.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        /* ===== Check Auth ===== */
+        const user = storage.getCurrentUser();
+        if (!user) {
+            storage.showToast('Please login first.', 'error');
+            setTimeout(() => window.location.href = 'login.html', 1000);
+        }
+
+        if (user) {
+            document.getElementById('userName').textContent = user.name || user.fullName || 'User';
+            document.getElementById('profileName').textContent = user.name || user.fullName || 'User';
+            document.getElementById('profileEmail').textContent = user.email || '';
+            document.getElementById('profileAvatar').textContent = (user.name || user.fullName || 'G').charAt(0).toUpperCase();
+            document.getElementById('editName').value = user.name || user.fullName || '';
+            document.getElementById('editEmail').value = user.email || '';
+        }
+
+        /* ===== Load Order History ===== */
+        const orders = storage.getOrders ? storage.getOrders() : [];
+        if (orders.length > 0) {
+            const historyEl = document.getElementById('orderHistory');
+            historyEl.innerHTML = orders.map((order, i) => `
+                <div class="order-history-item">
+                    <div class="order-history-top">
+                        <span class="order-id">#CD-${20260000 + i + 1}</span>
+                        <span class="order-status">Completed</span>
+                    </div>
+                    <p class="order-total">${order.total || 'Rs. ---'}</p>
+                    <p class="order-date">${order.date ? new Date(order.date).toLocaleDateString() : '---'}</p>
+                </div>
+            `).join('');
+        }
+
+        /* ===== Update Profile ===== */
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('editName').value.trim();
+            const email = document.getElementById('editEmail').value.trim();
+            if (!name || !email) { storage.showToast('Please fill in all fields.', 'error'); return; }
+
+            const result = auth.updateProfile({ name, email });
+            if (result && result.success !== false) {
+                storage.showToast('Profile updated!', 'success');
+                document.getElementById('userName').textContent = name;
+                document.getElementById('profileName').textContent = name;
+                document.getElementById('profileEmail').textContent = email;
+                document.getElementById('profileAvatar').textContent = name.charAt(0).toUpperCase();
+            } else {
+                storage.showToast(result?.message || 'Update failed.', 'error');
+            }
+        });
+
+        /* ===== Change Password ===== */
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const currentPw = document.getElementById('currentPassword').value;
+            const newPw = document.getElementById('newPassword').value;
+            if (!currentPw || !newPw) { storage.showToast('Please fill in all fields.', 'error'); return; }
+            if (!storage.validatePassword(newPw)) {
+                storage.showToast('New password must be 8+ chars with a number and uppercase letter.', 'error');
+                return;
+            }
+
+            const result = auth.changePassword(currentPw, newPw);
+            if (result && result.success) {
+                storage.showToast('Password changed!', 'success');
+                this.reset();
+            } else {
+                storage.showToast(result?.message || 'Password change failed.', 'error');
+            }
+        });
+
+        /* ===== Logout ===== */
+        function handleLogout(e) {
+            e.preventDefault();
+            auth.logout();
+            storage.showToast('Logged out. Redirecting...', 'success');
+            setTimeout(() => window.location.href = 'index.html', 1000);
+        }
+        document.getElementById('logoutBtn')?.addEventListener('click', handleLogout);
+        document.getElementById('mobileLogoutBtn')?.addEventListener('click', handleLogout);
+    </script>
 </body>
 </html>

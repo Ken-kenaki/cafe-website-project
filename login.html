@@ -3,226 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Cafe Delight</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Login — Cafe Delight</title>
     <link rel="icon" href="images/logo.png" type="image/png">
-
-    <style>
-        :root {
-            --coffee-dark: #2C1810;
-            --coffee-medium: #5C4033;
-            --coffee-light: #8B6F47;
-            --cream: #F5E6D3;
-            --cream-light: #FAF3E8;
-            --accent-gold: #D4AF37;
-            --accent-warm: #E07A5F;
-            --text-dark: #2C1810;
-            --text-light: #F5E6D3;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background: var(--cream-light);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-container {
-            width: 100%;
-            max-width: 500px;
-            padding: 3rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.1);
-            margin: 2rem;
-            animation: fadeInUp 0.6s ease;
-        }
-
-        .login-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .login-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--coffee-dark);
-        }
-
-        .login-header p {
-            font-size: 1rem;
-            color: var(--coffee-medium);
-        }
-
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--coffee-dark);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid var(--cream);
-            border-radius: 10px;
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--cream-light);
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            background: white;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn-forgot,
-        .btn-login {
-            flex: 1;
-            padding: 1.1rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid;
-            font-size: 1rem;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-
-        .btn-forgot {
-            background: transparent;
-            color: var(--coffee-dark);
-            border-color: var(--coffee-dark);
-        }
-
-        .btn-forgot:hover {
-            background: var(--cream);
-        }
-
-        .btn-login {
-            background: var(--coffee-dark);
-            color: var(--cream);
-            border-color: var(--coffee-dark);
-        }
-
-        .btn-login:hover {
-            background: var(--coffee-medium);
-            border-color: var(--coffee-medium);
-            transform: translateY(-2px);
-        }
-
-        .signup-link {
-            text-align: center;
-            margin-top: 2rem;
-            color: var(--coffee-medium);
-        }
-
-        .signup-link a {
-            color: var(--coffee-dark);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .signup-link a:hover {
-            color: var(--accent-gold);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .login-container {
-                padding: 2rem;
-            }
-
-            .login-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .form-actions {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-header">
-            <h1>Welcome Back!</h1>
-            <p>Log in to your account and manage your coffee orders.</p>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Cafe Delight Logo"></a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+                <a href="order.html" class="btn-nav">Order Now</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span class="hamburger"><i class="fas fa-bars"></i></span><span class="close" style="display:none;"><i class="fas fa-times"></i></span></button>
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-overlay"></div>
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="order.html" class="btn-nav"><i class="fas fa-shopping-bag"></i> Order Now</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== AUTH PAGE ===== -->
+    <section class="auth-page">
+        <div class="auth-container reveal">
+            <div class="auth-icon"><i class="fas fa-mug-hot"></i></div>
+            <h1>Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to your Cafe Delight account</p>
+
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember"> Remember me
+                    </label>
+                    <a href="forgot-password.html" class="form-link">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-wide">Sign In</button>
+            </form>
+
+            <p class="auth-footer">Don't have an account? <a href="signup.html" class="form-link">Create one</a></p>
         </div>
+    </section>
 
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
-            </div>
-
-            <div class="form-actions">
-                <a href="forgot-password.html" class="btn-forgot">Forgot Password?</a>
-                <button type="submit" class="btn-login">Login</button>
-            </div>
-        </form>
-
-        <div class="signup-link">
-            Don't have an account? <a href="signup.html">Sign up here</a>
-        </div>
-    </div>
-
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = {
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value
-            };
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
 
-            console.log('Login attempted:', formData);
-            alert('Login successful! Welcome back.');
-            window.location.href = 'index.html';
+            if (!email || !password) {
+                storage.showToast('Please fill in all fields.', 'error');
+                return;
+            }
+            if (!storage.validateEmail(email)) {
+                storage.showToast('Please enter a valid email.', 'error');
+                return;
+            }
+
+            const result = auth.login(email, password);
+            if (result.success) {
+                storage.showToast('Login successful! Redirecting...', 'success');
+                setTimeout(() => window.location.href = 'dashboard.html', 1200);
+            } else {
+                storage.showToast(result.message || 'Invalid credentials.', 'error');
+            }
         });
     </script>
 </body>

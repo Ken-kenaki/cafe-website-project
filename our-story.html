@@ -3,755 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story - Cafe Delight</title>
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Our Story — Cafe Delight</title>
     <link rel="icon" href="images/logo.png" type="image/png">
-
-    <style>
-        :root {
-            --coffee-dark: #2C1810;
-            --coffee-medium: #5C4033;
-            --coffee-light: #8B6F47;
-            --cream: #F5E6D3;
-            --cream-light: #FAF3E8;
-            --accent-gold: #D4AF37;
-            --accent-warm: #E07A5F;
-            --text-dark: #2C1810;
-            --text-light: #F5E6D3;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background: var(--cream-light);
-            line-height: 1.6;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--coffee-medium) 0%, var(--coffee-dark) 100%);
-            color: var(--cream);
-            text-align: center;
-            padding: 6rem 5% 8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grain" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="none"/><g opacity="0.03"><circle cx="10" cy="10" r="1" fill="white"/><circle cx="50" cy="30" r="1" fill="white"/><circle cx="80" cy="60" r="1" fill="white"/><circle cx="30" cy="80" r="1" fill="white"/><circle cx="70" cy="20" r="1" fill="white"/></g></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            pointer-events: none;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--cream);
-            padding: 0.9rem 2.5rem;
-            border: 2px solid var(--cream);
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: var(--cream);
-            color: var(--coffee-dark);
-        }
-
-        .btn-primary {
-            background: var(--accent-gold);
-            color: var(--coffee-dark);
-            padding: 0.9rem 2.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--accent-gold);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--cream);
-            border-color: var(--cream);
-        }
-
-        /* Our Story Section */
-        .story-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 5%;
-        }
-
-        .story-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--coffee-dark);
-        }
-
-        .story-section > p {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--coffee-medium);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .story-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 5rem;
-        }
-
-        .story-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-warm));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .story-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(44, 24, 16, 0.15);
-        }
-
-        .story-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .story-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--coffee-dark);
-        }
-
-        .story-card p {
-            color: var(--coffee-medium);
-            line-height: 1.8;
-        }
-
-        /* Values Section */
-        .values-section {
-            background: linear-gradient(to bottom, var(--cream-light), white);
-            padding: 5rem 5%;
-        }
-
-        .values-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            color: var(--coffee-dark);
-        }
-
-        .values-section > p {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--coffee-medium);
-            margin-bottom: 4rem;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-item {
-            text-align: center;
-            padding: 2rem;
-            animation: fadeInUp 0.6s ease both;
-        }
-
-        .value-item:nth-child(1) { animation-delay: 0.1s; }
-        .value-item:nth-child(2) { animation-delay: 0.2s; }
-        .value-item:nth-child(3) { animation-delay: 0.3s; }
-
-        .value-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .value-item:hover .value-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .value-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.8rem;
-            color: var(--coffee-dark);
-        }
-
-        .value-item p {
-            color: var(--coffee-medium);
-            line-height: 1.8;
-        }
-
-        /* Location Section */
-        .location-section {
-            background: var(--cream);
-            padding: 5rem 5%;
-            margin: 5rem 0;
-        }
-
-        .location-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .location-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .location-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--coffee-dark);
-            margin-bottom: 1rem;
-        }
-
-        .location-header p {
-            font-size: 1.2rem;
-            color: var(--coffee-medium);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .location-map-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        @media (min-width: 992px) {
-            .location-map-container {
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            .location-info {
-                flex: 1;
-            }
-            
-            .location-map-wrapper {
-                flex: 1.5;
-            }
-        }
-
-        .location-info {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
-        }
-
-        .location-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--coffee-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .info-icon {
-            background: var(--accent-gold);
-            color: var(--coffee-dark);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .info-content h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--coffee-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .info-content p {
-            color: var(--coffee-medium);
-            line-height: 1.6;
-        }
-
-        .location-map-wrapper {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(44, 24, 16, 0.1);
-            height: 450px;
-        }
-
-        .location-map {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--coffee-dark);
-            color: var(--cream);
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .footer-links a {
-            color: var(--cream);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            opacity: 0.9;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-gold);
-            opacity: 1;
-        }
-
-        /* Mobile Navigation */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--coffee-dark);
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-nav-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100vh;
-            z-index: 1001;
-        }
-
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 24, 16, 0.5);
-            backdrop-filter: blur(5px);
-            display: none;
-        }
-
-        .mobile-nav-links {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--cream-light);
-            padding: 4rem 2rem 2rem;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .mobile-nav-links.active {
-            transform: translateX(0);
-        }
-
-        .mobile-nav-links li {
-            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
-            padding-bottom: 1rem;
-        }
-
-        .mobile-nav-links a {
-            text-decoration: none;
-            color: var(--coffee-dark);
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-nav-container {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .story-section h2,
-            .values-section h2 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                gap: 1.5rem;
-            }
-
-            .location-header h2 {
-                font-size: 2.2rem;
-            }
-
-            .location-info {
-                padding: 1.5rem;
-            }
-
-            .location-map-wrapper {
-                height: 350px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <ul class="nav-links desktop-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="order.html" class="btn-order">Order Now</a></li>
-            <li>
-                <div class="user-icon">
-                    <a href="login.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-        </ul>
-        
-        <!-- Mobile Menu Button (right side) -->
-        <button class="mobile-menu-btn">
-            <span class="hamburger">
-                <i class="fas fa-bars"></i>
-            </span>
-            <span class="close" style="display: none;">
-                <i class="fas fa-times"></i>
-            </span>
-        </button>
-        
-        <!-- Mobile Navigation (separate from desktop) -->
-        <div class="mobile-nav-container">
-            <div class="mobile-nav-overlay"></div>
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="our-story.html">Our Story</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="order.html" class="btn-order">Order Now</a></li>
-                <li>
-                    <div class="user-icon">
-                        <a href="login.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                            </svg>
-                            <span>Login</span>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
 
-    <section class="hero">
-        <h1>About Us</h1>
-        <p>Your neighborhood cafe serving delightful coffee and pastries.</p>
-        <div class="hero-buttons">
-            <a href="menu.html" class="btn-secondary">View Menu</a>
-            <a href="order.html" class="btn-primary">Order Now</a>
-        </div>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Cafe Delight Logo"></a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+                <a href="order.html" class="btn-nav">Order Now</a>
+                <a href="login.html" class="nav-user" aria-label="Login"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span class="hamburger"><i class="fas fa-bars"></i></span><span class="close" style="display:none;"><i class="fas fa-times"></i></span></button>
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-overlay"></div>
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="order.html" class="btn-nav"><i class="fas fa-shopping-bag"></i> Order Now</a></li>
+                    <li><a href="login.html" class="nav-user"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg><span>Login</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="story-hero">
+        <h1>Our Story</h1>
+        <p>From a small dream to your favorite cup — every bean has a tale.</p>
     </section>
 
-    <section class="story-section">
-        <h2>Our Story</h2>
-        <p>At Cafe Delight, we believe in creating a warm and welcoming atmosphere.</p>
-
-        <div class="story-cards">
-            <div class="story-card">
+    <!-- ===== STORY CARDS ===== -->
+    <section class="story-cards-section">
+        <div class="section-header">
+            <span class="section-label">The Journey</span>
+            <h2 class="section-title">How It All Began</h2>
+        </div>
+        <div class="story-cards-grid">
+            <div class="story-card reveal">
+                <span class="story-card-number">01</span>
+                <i class="fas fa-seedling"></i>
                 <h3>Our Origins</h3>
-                <p>Founded in 2020, Cafe Delight aims to provide the finest coffee experience to our community. We source our beans from sustainable farms and roast them with care.</p>
+                <p>In 2010, two friends with a passion for great coffee opened a tiny corner café in the heart of Kathmandu. Armed with a second-hand espresso machine and an unwavering belief that quality matters, Cafe Delight was born.</p>
             </div>
-            <div class="story-card">
+            <div class="story-card reveal">
+                <span class="story-card-number">02</span>
+                <i class="fas fa-heart"></i>
                 <h3>Our Philosophy</h3>
-                <p>We prioritize quality and sustainability in our products. Every cup is crafted with attention to detail, ensuring you get the perfect brew every time.</p>
+                <p>We believe coffee is more than a beverage — it's a ritual. We source ethically-grown beans from Nepal's highland farms, roast in small batches, and pour every cup with intention. Freshness isn't a goal; it's a promise.</p>
             </div>
-            <div class="story-card">
-                <h3>Community Focused</h3>
-                <p>We are committed to supporting local farmers and giving back to our community. Your support helps us make a positive impact in our neighborhood.</p>
+            <div class="story-card reveal">
+                <span class="story-card-number">03</span>
+                <i class="fas fa-users"></i>
+                <h3>Our Community</h3>
+                <p>From students to entrepreneurs, our café is a gathering place where ideas brew alongside espresso. We host monthly open-mic nights, art displays, and latte-art workshops to keep the community connected.</p>
             </div>
         </div>
     </section>
 
+    <!-- ===== VALUES ===== -->
     <section class="values-section">
-        <h2>Our Values</h2>
-        <p>What we stand for</p>
-
+        <div class="section-header">
+            <span class="section-label">What We Stand For</span>
+            <h2 class="section-title">Our Values</h2>
+            <p class="section-subtitle mx-auto">The principles that guide every decision we make.</p>
+        </div>
         <div class="values-grid">
-            <div class="value-item">
-                <div class="value-icon">
-                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
-                        <path d="M9 1v2H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5h1V3h-5V1H9zm0 4h6v12H9V5z"/>
-                    </svg>
-                </div>
+            <div class="value-card reveal-left">
+                <div class="value-icon"><i class="fas fa-handshake"></i></div>
                 <h3>Integrity</h3>
-                <p>Honesty in all we do</p>
+                <p>Transparent sourcing, honest pricing, and genuine relationships with every farmer and customer.</p>
             </div>
-            <div class="value-item">
-                <div class="value-icon">
-                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                </div>
+            <div class="value-card reveal">
+                <div class="value-icon"><i class="fas fa-leaf"></i></div>
                 <h3>Sustainability</h3>
-                <p>Eco-friendly practices</p>
+                <p>Compostable packaging, zero-waste brewing, and a commitment to leaving a lighter footprint on Earth.</p>
             </div>
-            <div class="value-item">
-                <div class="value-icon">
-                    <svg width="50" height="50" viewBox="0 0 24 24" fill="white">
-                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                    </svg>
-                </div>
+            <div class="value-card reveal-right">
+                <div class="value-icon"><i class="fas fa-people-group"></i></div>
                 <h3>Community</h3>
-                <p>Support local causes</p>
+                <p>A welcoming space for all — supporting local artists, students, and creators who make Kathmandu vibrant.</p>
             </div>
         </div>
     </section>
 
+    <!-- ===== LOCATION ===== -->
     <section class="location-section">
-        <div class="location-content">
-            <div class="location-header">
-                <h2>Visit Our Cafe</h2>
-                <p>Experience the warmth and aroma of our carefully crafted coffee at our convenient location</p>
+        <div class="location-grid">
+            <div class="location-info reveal-left">
+                <span class="section-label">Find Us</span>
+                <h2 class="section-title">Visit Our Café</h2>
+                <p>We're nestled near Techspire College in the bustling heart of Kathmandu. Come for the coffee, stay for the conversation.</p>
+                <ul class="location-details">
+                    <li><i class="fas fa-map-marker-alt"></i> Near Techspire College, Kathmandu</li>
+                    <li><i class="fas fa-clock"></i> Mon–Fri: 7am – 9pm</li>
+                    <li><i class="fas fa-clock"></i> Sat–Sun: 8am – 10pm</li>
+                    <li><i class="fas fa-phone"></i> +977 01-4567890</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
             </div>
-            
-            <div class="location-map-container">
-                <div class="location-info">
-                    <h3>Location Details</h3>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Address</h4>
-                            <p>Techspire College Area<br>Kathmandu, Nepal</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Opening Hours</h4>
-                            <p>Monday - Friday: 7:00 AM - 9:00 PM<br>Saturday - Sunday: 8:00 AM - 10:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Contact</h4>
-                            <p>Phone: +977 1-XXXXXXX<br>Email: info@cafedelight.com</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location-map-wrapper">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.966458868519!2d85.33237997609942!3d27.687431526368545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x23bb4647745b3c5%3A0x188d79956864ba46!2sTechspire%20College!5e0!3m2!1sen!2snp!4v1770363454307!5m2!1sen!2snp" 
-                        class="location-map" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Cafe Delight Location Map">
-                    </iframe>
-                </div>
+            <div class="location-map reveal-right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.966458868519!2d85.33237997609942!3d27.687431526368545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x23bb4647745b3c5%3A0x188d79956864ba46!2sTechspire%20College!5e0!3m2!1sen!2snp!4v1770363454307!5m2!1sen!2snp"
+                    width="100%" height="400" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
-    <footer>
-        <ul class="footer-links">
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Follow us on social media</a></li>
-        </ul>
-        <p>&copy; 2024 Cafe Delight. All rights reserved.</p>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Cafe Delight</h3>
+                    <p>Crafting exceptional coffee experiences since 2010. Every cup is a journey of flavor, quality, and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="our-story.html">Our Story</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="order.html">Order Online</a>
+                    <a href="delivery-address.html">Delivery</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <a href="#">Mon–Fri: 7am–9pm</a>
+                    <a href="#">Sat–Sun: 8am–10pm</a>
+                    <a href="#">Holidays: 9am–6pm</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cafe Delight. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-        const mobileNavLinks = document.querySelector('.mobile-nav-links');
-        const hamburger = document.querySelector('.hamburger');
-        const closeBtn = document.querySelector('.close');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            const isActive = mobileNavLinks.classList.contains('active');
-            
-            if (!isActive) {
-                mobileNavLinks.classList.add('active');
-                mobileNavOverlay.style.display = 'block';
-                hamburger.style.display = 'none';
-                closeBtn.style.display = 'inline';
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileNavLinks.classList.remove('active');
-                mobileNavOverlay.style.display = 'none';
-                hamburger.style.display = 'inline';
-                closeBtn.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        mobileNavOverlay.addEventListener('click', () => {
-            mobileNavLinks.classList.remove('active');
-            mobileNavOverlay.style.display = 'none';
-            hamburger.style.display = 'inline';
-            closeBtn.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavLinks.classList.remove('active');
-                mobileNavOverlay.style.display = 'none';
-                hamburger.style.display = 'inline';
-                closeBtn.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        });
-    </script>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

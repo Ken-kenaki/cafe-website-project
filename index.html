@@ -3,175 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafe Delight - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Cafe Delight — Artisan Coffee & Pastries</title>
     <link rel="icon" href="images/logo.png" type="image/png">
-
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <ul class="nav-links desktop-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="order.html" class="btn-order">Order Now</a></li>
-            <li>
-                <div class="user-icon">
-                    <a href="login.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-        </ul>
-        
-        <!-- Mobile Menu Button (right side) -->
-        <button class="mobile-menu-btn">
-            <span class="hamburger">
-                <i class="fas fa-bars"></i>
-            </span>
-            <span class="close" style="display: none;">
-                <i class="fas fa-times"></i>
-            </span>
-        </button>
-        
-        <!-- Mobile Navigation (separate from desktop) -->
-        <div class="mobile-nav-container">
-            <div class="mobile-nav-overlay"></div>
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="our-story.html">Our Story</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="order.html" class="btn-order">Order Now</a></li>
-                <li>
-                    <div class="user-icon">
-                        <a href="login.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                            </svg>
-                            <span>Login</span>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(rgba(44, 24, 16, 0.5), rgba(92, 64, 51, 0.8)), url('/images/hero.jpg'); height: 70vh; background-size: cover; background-position: center; color: white; text-align: center; margin-top: 10vh; padding: 6rem 5%;">
-        <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;">Welcome to Cafe Delight</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9;">Experience the finest coffee blends from around the world</p>
-        <div class="hero-buttons">
-            <a href="menu.html" class="btn-secondary">View Menu</a>
-            <a href="order.html" class="btn-primary">Order Now</a>
-        </div>
-    </section>
+    <!-- ===== HEADER / NAV ===== -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Cafe Delight Logo">
+            </a>
 
-    <!-- Featured Drinks -->
-    <section style="padding: 5rem 5%; background: white;">
-        <div style="text-align: center; margin-bottom: 3rem;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; margin-bottom: 1rem; color: var(--coffee-dark);">Our Specialties</h2>
-            <p style="font-size: 1.1rem; color: var(--coffee-medium);">Handcrafted with passion and precision</p>
-        </div>
-
-        <div class="drinks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-            <div class="drink-card" style="background: var(--cream-light); border-radius: 15px; overflow: hidden; transition: all 0.3s ease;">
-                <div class="drink-image" style="width: 100%; height: 250px; overflow: hidden;">
-                    <img src="/images/expresso.jpg" alt="Espresso" style="width: 100%; height: 100%; object-fit: cover;">
-                    <div class="drink-badge" style="position: absolute; top: 15px; left: 15px; background: var(--coffee-dark); color: var(--cream); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Best Seller</div>
-                </div>
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--coffee-dark);">Espresso</h3>
-                    <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-gold);">Rs.300</div>
-                </div>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+                <a href="order.html" class="btn-nav">Order Now</a>
+                <a href="login.html" class="nav-user" aria-label="Login">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                </a>
             </div>
 
-            <div class="drink-card" style="background: var(--cream-light); border-radius: 15px; overflow: hidden; transition: all 0.3s ease;">
-                <div class="drink-image" style="width: 100%; height: 250px; overflow: hidden;">
-                    <img src="/images/latte.jpg" alt="Latte" style="width: 100%; height: 100%; object-fit: cover;">
-                    <div class="drink-badge" style="position: absolute; top: 15px; left: 15px; background: var(--coffee-dark); color: var(--cream); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Creamy</div>
-                </div>
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--coffee-dark);">Latte</h3>
-                    <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-gold);">Rs.350</div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span class="hamburger"><i class="fas fa-bars"></i></span>
+                <span class="close" style="display:none;"><i class="fas fa-times"></i></span>
+            </button>
+
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-overlay"></div>
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="order.html" class="btn-nav"><i class="fas fa-shopping-bag"></i> Order Now</a></li>
+                    <li><a href="login.html" class="nav-user"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg><span>Login</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO — Immersive Split Layout ===== -->
+    <section class="home-hero">
+        <div class="hero-pattern"></div>
+        <div class="home-hero-grid">
+            <div class="home-hero-text">
+                <span class="section-label">Welcome to Cafe Delight</span>
+                <h1>Crafted with Passion,<br>Served with Love</h1>
+                <p>Experience the finest artisan coffee blends and freshly baked pastries. Every sip tells a story of quality and tradition.</p>
+                <div class="home-hero-buttons">
+                    <a href="menu.html" class="btn btn-light">Explore Menu</a>
+                    <a href="order.html" class="btn btn-gold">Order Now</a>
                 </div>
             </div>
-
-            <div class="drink-card" style="background: var(--cream-light); border-radius: 15px; overflow: hidden; transition: all 0.3s ease;">
-                <div class="drink-image" style="width: 100%; height: 250px; overflow: hidden;">
-                    <img src="/images/croissant.jpg" alt="Croissant" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="home-hero-visual">
+                <img src="images/hero.jpg" alt="Cafe Delight Interior" class="hero-img">
+                <div class="floating-badge top-right">
+                    <div class="badge-icon">⭐</div>
+                    <div class="badge-text">4.9 Rating</div>
+                    <div class="badge-sub">500+ Reviews</div>
                 </div>
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--coffee-dark);">Croissant</h3>
-                    <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-gold);">Rs.200</div>
+                <div class="floating-badge bottom-left">
+                    <div class="badge-icon">☕</div>
+                    <div class="badge-text">Since 2010</div>
+                    <div class="badge-sub">Artisan Coffee</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Story Preview -->
-    <section style="padding: 5rem 5%; background: var(--cream-light);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 1rem; color: var(--coffee-dark);">Our Story</h2>
-            <p style="text-align: center; font-size: 1.1rem; color: var(--coffee-medium); margin-bottom: 3rem;">Started in 2010 as a small coffee stand, now a beloved local spot</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08); display: flex; gap: 1.5rem; align-items: start;">
-                    <div style="width: 60px; height: 60px; background: var(--cream); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                        🫘
-                    </div>
-                    <div>
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--coffee-dark);">Quality Beans</h3>
-                        <p style="color: var(--coffee-medium); line-height: 1.6;">We source our beans from sustainable farms around the world</p>
-                    </div>
-                </div>
-                
-                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(44, 24, 16, 0.08); display: flex; gap: 1.5rem; align-items: start;">
-                    <div style="width: 60px; height: 60px; background: var(--cream); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                        🎀
-                    </div>
-                    <div>
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--coffee-dark);">Made with Love</h3>
-                        <p style="color: var(--coffee-medium); line-height: 1.6;">Every cup is crafted with attention to detail and passion</p>
-                    </div>
+    <!-- ===== SPECIALTIES — Image Overlay Cards ===== -->
+    <section class="home-specialties">
+        <div class="section-header">
+            <span class="section-label">Our Specialties</span>
+            <h2 class="section-title">Handcrafted with Precision</h2>
+            <p class="section-subtitle mx-auto">Each drink is a masterpiece, blended from the world's finest beans and ingredients.</p>
+        </div>
+        <div class="specialties-grid">
+            <div class="specialty-card reveal">
+                <img src="images/expresso.jpg" alt="Espresso">
+                <div class="specialty-overlay">
+                    <span class="specialty-badge">Best Seller</span>
+                    <h3>Espresso</h3>
+                    <span class="specialty-price">Rs. 300</span>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="our-story.html" class="btn-primary">Learn More About Us</a>
+            <div class="specialty-card reveal">
+                <img src="images/latte.jpg" alt="Latte">
+                <div class="specialty-overlay">
+                    <span class="specialty-badge">Creamy</span>
+                    <h3>Latte</h3>
+                    <span class="specialty-price">Rs. 350</span>
+                </div>
+            </div>
+            <div class="specialty-card reveal">
+                <img src="images/croissant.jpg" alt="Croissant">
+                <div class="specialty-overlay">
+                    <span class="specialty-badge">Fresh Baked</span>
+                    <h3>Croissant</h3>
+                    <span class="specialty-price">Rs. 200</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <ul class="footer-links">
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Follow us on social media</a></li>
-        </ul>
-        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">&copy; 2024 Cafe Delight. All rights reserved.</p>
+    <!-- ===== WHY CHOOSE US — Icon Cards ===== -->
+    <section class="home-why">
+        <div class="section-header">
+            <span class="section-label">Why Cafe Delight</span>
+            <h2 class="section-title">What Makes Us Special</h2>
+            <p class="section-subtitle mx-auto">More than just coffee — we deliver an experience.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon">🫘</div>
+                <h3>Premium Beans</h3>
+                <p>Sourced from the finest sustainable farms across the globe.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">🎨</div>
+                <h3>Handcrafted</h3>
+                <p>Every cup is prepared with artisan care and precision.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">🌱</div>
+                <h3>Eco-Friendly</h3>
+                <p>Committed to sustainable and earth-friendly practices.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">❤️</div>
+                <h3>Community</h3>
+                <p>Supporting local farmers and giving back to our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR STORY PREVIEW — Split Screen ===== -->
+    <section class="home-story">
+        <div class="story-split">
+            <div class="story-image reveal-left">
+                <img src="images/mocha.jpg" alt="Our Story">
+                <div class="experience-badge">
+                    <span class="years">15+</span>
+                    <span class="label">Years</span>
+                </div>
+            </div>
+            <div class="story-text reveal-right">
+                <span class="section-label">Our Journey</span>
+                <h2>A Passion That Started in 2010</h2>
+                <p>From a small coffee stand to a beloved local cafe, our journey has been fueled by love for great coffee and meaningful community connections.</p>
+                <div class="story-features">
+                    <div class="story-feature">
+                        <div class="story-feature-icon">🏆</div>
+                        <span>Award Winning Blends</span>
+                    </div>
+                    <div class="story-feature">
+                        <div class="story-feature-icon">🌍</div>
+                        <span>Globally Sourced</span>
+                    </div>
+                    <div class="story-feature">
+                        <div class="story-feature-icon">👩‍🍳</div>
+                        <span>Expert Baristas</span>
+                    </div>
+                    <div class="story-feature">
+                        <div class="story-feature-icon">💚</div>
+                        <span>100% Organic</span>
+                    </div>
+                </div>
+                <a href="our-story.html" class="btn btn-primary">Read Our Full Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="home-cta">
+        <div class="hero-pattern"></div>
+        <h2>Ready for Your Next Cup?</h2>
+        <p>Order online for pickup or delivery — freshness guaranteed in every sip.</p>
+        <div class="cta-buttons">
+            <a href="order.html" class="btn btn-gold">Order Now</a>
+            <a href="contact.html" class="btn btn-light">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Cafe Delight</h3>
+                    <p>Crafting exceptional coffee experiences since 2010. Every cup is a journey of flavor, quality, and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="our-story.html">Our Story</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="order.html">Order Online</a>
+                    <a href="delivery-address.html">Delivery</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <a href="#">Mon–Fri: 7am–9pm</a>
+                    <a href="#">Sat–Sun: 8am–10pm</a>
+                    <a href="#">Holidays: 9am–6pm</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cafe Delight. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="/js/storage.js"></script>
-    <script src="/js/auth.js"></script>
-    <!-- <script src="/js/main.js"></script> -->
-    <script src="/js/nav.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

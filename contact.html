@@ -1,409 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Cafe Delight</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Cafe Delight</title>
     <link rel="icon" href="images/logo.png" type="image/png">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/nav.css">
-    <style>
-      :root {
-        --coffee-dark: #2c1810;
-        --coffee-medium: #5c4033;
-        --coffee-light: #8b6f47;
-        --cream: #f5e6d3;
-        --cream-light: #faf3e8;
-        --accent-gold: #d4af37;
-        --accent-warm: #e07a5f;
-        --text-dark: #2c1810;
-        --text-light: #f5e6d3;
-      }
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Cafe Delight Logo"></a>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+                <a href="order.html" class="btn-nav">Order Now</a>
+                <a href="login.html" class="nav-user" aria-label="Login"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span class="hamburger"><i class="fas fa-bars"></i></span><span class="close" style="display:none;"><i class="fas fa-times"></i></span></button>
+            <div class="mobile-nav-container">
+                <div class="mobile-nav-overlay"></div>
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="menu.html"><i class="fas fa-mug-hot"></i> Menu</a></li>
+                    <li><a href="our-story.html"><i class="fas fa-book-open"></i> Our Story</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="order.html" class="btn-nav"><i class="fas fa-shopping-bag"></i> Order Now</a></li>
+                    <li><a href="login.html" class="nav-user"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg><span>Login</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-      body {
-        font-family: "Lato", sans-serif;
-        color: var(--text-dark);
-        background: var(--cream-light);
-        line-height: 1.6;
-      }
+    <!-- ===== HERO ===== -->
+    <section class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>Questions, comments, or cravings? We'd love to hear from you.</p>
+    </section>
 
-      /* Main Content */
-      .contact-container {
-        max-width: 600px;
-        margin: 4rem auto;
-        padding: 0 5%;
-        animation: fadeInUp 0.8s ease;
-      }
-
-      .contact-header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .contact-header h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 3.5rem;
-        font-weight: 900;
-        margin-bottom: 1rem;
-        color: var(--coffee-dark);
-      }
-
-      .contact-header p {
-        font-size: 1.1rem;
-        color: var(--coffee-medium);
-      }
-
-      /* Form Styles */
-      .contact-form {
-        background: white;
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(44, 24, 16, 0.08);
-      }
-
-      .form-group {
-        margin-bottom: 2rem;
-      }
-
-      .form-group label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--coffee-dark);
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 1rem;
-        border: 2px solid var(--cream);
-        border-radius: 10px;
-        font-family: "Lato", sans-serif;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        background: var(--cream-light);
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--accent-gold);
-        background: white;
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 120px;
-      }
-
-      /* Reason Buttons */
-      .reason-group {
-        margin-bottom: 2rem;
-      }
-
-      .reason-group label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        color: var(--coffee-dark);
-      }
-
-      .reason-buttons {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .reason-btn {
-        padding: 0.75rem 1.5rem;
-        background: var(--cream);
-        border: 2px solid var(--cream);
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        color: var(--coffee-medium);
-      }
-
-      .reason-btn:hover {
-        background: var(--cream-light);
-        border-color: var(--coffee-light);
-      }
-
-      .reason-btn.active {
-        background: var(--coffee-dark);
-        color: var(--cream);
-        border-color: var(--coffee-dark);
-      }
-
-      /* Submit Button */
-      .submit-btn {
-        width: 100%;
-        padding: 1.2rem;
-        background: var(--coffee-dark);
-        color: var(--cream);
-        border: 2px solid var(--coffee-dark);
-        border-radius: 30px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-family: "Lato", sans-serif;
-      }
-
-      .submit-btn:hover {
-        background: transparent;
-        color: var(--coffee-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(44, 24, 16, 0.2);
-      }
-
-      /* Footer */
-      footer {
-        background: var(--coffee-dark);
-        color: var(--cream);
-        padding: 3rem 5%;
-        text-align: center;
-        margin-top: 5rem;
-      }
-
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        list-style: none;
-        margin-bottom: 0;
-      }
-
-      .footer-links a {
-        color: var(--cream);
-        text-decoration: none;
-        transition: color 0.3s ease;
-        opacity: 0.9;
-      }
-
-      .footer-links a:hover {
-        color: var(--accent-gold);
-        opacity: 1;
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .nav-links {
-          gap: 1.5rem;
-          font-size: 0.9rem;
-        }
-
-        .contact-header h1 {
-          font-size: 2.5rem;
-        }
-
-        .contact-form {
-          padding: 2rem;
-        }
-
-        .footer-links {
-          flex-wrap: wrap;
-          gap: 1.5rem;
-        }
-
-        .reason-buttons {
-          flex-direction: column;
-        }
-
-        .reason-btn {
-          width: 100%;
-          text-align: center;
-        }
-      }
-    </style>
-  </head>
-  <body>
-<header>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="/images/logo.png" alt="Cafe Delight Logo" class="logo-img">
-        </a>
-        
-        <!-- Desktop Navigation -->
-        <ul class="nav-links desktop-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="order.html" class="btn-order">Order Now</a></li>
-            <li>
-                <div class="user-icon">
-                    <a href="login.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-        </ul>
-        
-        <!-- Mobile Menu Button (right side) -->
-        <button class="mobile-menu-btn">
-            <span class="hamburger">
-                <i class="fas fa-bars"></i>
-            </span>
-            <span class="close" style="display: none;">
-                <i class="fas fa-times"></i>
-            </span>
-        </button>
-        
-        <!-- Mobile Navigation (separate from desktop) -->
-        <div class="mobile-nav-container">
-            <div class="mobile-nav-overlay"></div>
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="our-story.html">Our Story</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="order.html" class="btn-order">Order Now</a></li>
-                <li>
-                    <div class="user-icon">
-                        <a href="login.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                            </svg>
-                            <span>Login</span>
-                        </a>
+    <!-- ===== CONTACT GRID ===== -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Left — Info Panel -->
+            <div class="contact-info-panel reveal-left">
+                <h2>Let's Chat</h2>
+                <p>Whether you have a question about our menu, want to cater an event, or just want to say hello — drop us a line.</p>
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address</strong>
+                            <span>Near Techspire College, Kathmandu</span>
+                        </div>
                     </div>
-                </li>
-            </ul>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <span>+977 01-4567890</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <span>hello@cafedelight.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Hours</strong>
+                            <span>Mon–Fri: 7am – 9pm &bull; Weekends: 8am – 10pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- Right — Contact Form -->
+            <div class="contact-form-panel reveal-right">
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason for Contact</label>
+                        <div class="reason-buttons">
+                            <button type="button" class="reason-btn active" data-reason="Enquiry">Enquiry</button>
+                            <button type="button" class="reason-btn" data-reason="Comment">Comment</button>
+                            <button type="button" class="reason-btn" data-reason="Suggestion">Suggestion</button>
+                            <button type="button" class="reason-btn" data-reason="Order">Order</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-wide">Send Message</button>
+                </form>
+            </div>
         </div>
-    </nav>
-</header>
+    </section>
 
-    <div class="contact-container">
-      <div class="contact-header">
-        <h1>Contact Us</h1>
-        <p>Learn about our journey and commitment to quality.</p>
-      </div>
-
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            required
-          />
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Cafe Delight</h3>
+                    <p>Crafting exceptional coffee experiences since 2010. Every cup is a journey of flavor, quality, and community.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="our-story.html">Our Story</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <a href="order.html">Order Online</a>
+                    <a href="delivery-address.html">Delivery</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <a href="#">Mon–Fri: 7am–9pm</a>
+                    <a href="#">Sat–Sun: 8am–10pm</a>
+                    <a href="#">Holidays: 9am–6pm</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cafe Delight. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            required
-          />
-        </div>
-
-        <div class="reason-group">
-          <label>Select Your Reason</label>
-          <div class="reason-buttons">
-            <button
-              type="button"
-              class="reason-btn active"
-              data-reason="enquiry"
-            >
-              Enquiry
-            </button>
-            <button type="button" class="reason-btn" data-reason="comment">
-              Comment
-            </button>
-            <button type="button" class="reason-btn" data-reason="suggestion">
-              Suggestion
-            </button>
-            <button type="button" class="reason-btn" data-reason="order">
-              Order
-            </button>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Special Requests</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Any special requests?"
-          ></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
-    </div>
-
-    <footer>
-      <ul class="footer-links">
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Follow us on social media</a></li>
-      </ul>
     </footer>
 
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
     <script>
-      // Reason button functionality
-      const reasonButtons = document.querySelectorAll(".reason-btn");
-      let selectedReason = "enquiry";
-
-      reasonButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          reasonButtons.forEach((btn) => btn.classList.remove("active"));
-          this.classList.add("active");
-          selectedReason = this.getAttribute("data-reason");
+        /* ===== Reason-button Toggle ===== */
+        document.querySelectorAll('.reason-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.reason-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
         });
-      });
 
-      // Form submission
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+        /* ===== Contact Form Submit ===== */
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const reason = document.querySelector('.reason-btn.active')?.dataset.reason || 'Enquiry';
 
-          const formData = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            reason: selectedReason,
-            message: document.getElementById("message").value,
-          };
+            if (!name || !email || !message) {
+                if (typeof storage !== 'undefined') storage.showToast('Please fill in all fields.', 'error');
+                return;
+            }
+            if (typeof storage !== 'undefined' && !storage.validateEmail(email)) {
+                storage.showToast('Please enter a valid email address.', 'error');
+                return;
+            }
 
-          console.log("Form submitted:", formData);
-          alert("Thank you for contacting us! We will get back to you soon.");
-          this.reset();
-          reasonButtons[0].classList.add("active");
-          selectedReason = "enquiry";
+            if (typeof storage !== 'undefined') {
+                storage.showToast(`Thanks, ${name}! Your ${reason.toLowerCase()} has been sent.`, 'success');
+            }
+            this.reset();
+            document.querySelectorAll('.reason-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.reason-btn').classList.add('active');
         });
     </script>
-    <script src="/js/nav.js"></script>
-  </body>
+</body>
 </html>
