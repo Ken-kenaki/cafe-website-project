@@ -1,32 +1,10 @@
 /* ===================================================================
-   main.js — Scroll Reveal Animations & Shared Interactivity
+   main.js — Shared Interactivity
    Cafe Delight
    =================================================================== */
 
 (function () {
     'use strict';
-
-    /* ----- Scroll Reveal with IntersectionObserver ----- */
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
-    if ('IntersectionObserver' in window && revealElements.length) {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        observer.unobserve(entry.target); // animate only once
-                    }
-                });
-            },
-            { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-        );
-
-        revealElements.forEach((el) => observer.observe(el));
-    } else {
-        // Fallback: show everything immediately
-        revealElements.forEach((el) => el.classList.add('revealed'));
-    }
 
     /* ----- Smooth Scroll for anchor links ----- */
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
